@@ -17,13 +17,15 @@ const linkOptions = ['home','about','anther page','pricing','blog']
 </script>
 <style scoped>
 .header {
-  height: 40px;
   width: calc(100% - 20px);
   display: grid;
   grid-template-columns: auto 5fr auto;
   grid-template-rows: auto;
   align-items: center;
   padding: 20px 10px;
+  transition: background 250ms ease-in;
+  background: transparent;
+
 }
 .main-link {
   display: flex;

@@ -1,7 +1,7 @@
 
 <template>
   <div class="container">
-    <Header class="header-wrapper" :class="[headerOutOfView? 'sticky' : '']"></Header>
+    <Header class="header-wrapper" :class="[headerOutOfView? 'nav-scroll' : '']"></Header>
     <Observer 
     @is-in-view="headerOutOfView=false"
     @is-outside-view="headerOutOfView=true"
@@ -18,10 +18,11 @@ import Header from './components/Header.vue';
 import HomeAbout from './components/HomeAbout.vue';
 import HomeIntro from './components/HomeIntro.vue';
 import HomeMoreStuff from './components/HomeMoreStuff.vue'
+import Observer from './components/Observer.vue';
 import {ref} from 'vue'
 const headerOutOfView = ref(false)
 const homeIntroOptions = {
-  threshold: 1,
+  threshold: 0,
   rootMargin: '-200px 0px 0px 0px'
 }
 
@@ -35,8 +36,10 @@ const homeIntroOptions = {
 .header-wrapper {
   position: fixed;
 }
-.header-wrapper.sticky {
-  background-color: white;
+.header-wrapper.nav-scroll {
+  color: #333;
+  background: #f4f4f4;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
 }
 
 .logo {

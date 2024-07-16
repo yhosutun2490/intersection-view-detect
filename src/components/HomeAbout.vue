@@ -2,36 +2,42 @@
     <Observer 
     :observerOptions="observerOptions"
     @is-in-view="isShowFadeIn=true"
+    @is-out-view="isShowFadeIn=false"
     >
         <div class="home-about">
         <h2>About us</h2>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-        <TransitionFadeIn :isShow="isShowFadeIn" class="columns">
-                <div class="col fade-in">
-                    <h3>Lorem, ipsum.</h3>
-                    <p>
-                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae
-                     maiores fuga eos provident voluptas perferendis.
-                    </p>
-                </div>
-                <div class="col fade-in">
-                <h3>A, illo!</h3>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptatibus minima quo beatae eius blanditiis officiis.
-                </p>
-            </div>
+        <div class="about-main-content">
+            <TransitionFadeIn :isShow="isShowFadeIn" class="columns">
             <div class="col fade-in">
-                <h3>Repudiandae, error?</h3>
+                <h3>Lorem, ipsum.</h3>
                 <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum
-                    quasi quis doloribus quia illum laudantium.
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae
+                    maiores fuga eos provident voluptas perferendis.
                 </p>
             </div>
-        </TransitionFadeIn>  
+        </TransitionFadeIn>          
+        <TransitionFadeIn :isShow="isShowFadeIn" class="columns">
+            <div class="col fade-in">
+                <h3>Lorem, ipsum.</h3>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae
+                    maiores fuga eos provident voluptas perferendis.
+                </p>
+            </div>
+        </TransitionFadeIn>   
+        <TransitionFadeIn :isShow="isShowFadeIn" class="columns">
+            <div class="col fade-in">
+                <h3>Lorem, ipsum.</h3>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae
+                    maiores fuga eos provident voluptas perferendis.
+                </p>
+            </div>
+        </TransitionFadeIn>   
+        </div>    
     </div>
-
-    </Observer>
+ </Observer>
 
 </template>
 <script setup>
@@ -40,14 +46,23 @@ import Observer from './Observer.vue';
 import {ref} from 'vue'
 const observerOptions = {
     root: null,
-    threshold: 0.5,
+    threshold: 0.85,
 }
 const isShowFadeIn = ref(false)
 
 </script>
 <style scoped>
-.columns {
+.home-about {
+  padding: 5% 8%;
+  background: #f4f4f4; 
+  color: #333;
+}
+.about-main-content {
   display: flex;
+  margin-top: 25pxgi;
+}
+h2,h3 {
+  font-weight: 700;
 }
 
 
