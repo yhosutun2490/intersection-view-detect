@@ -10,7 +10,7 @@
     background-blend-mode: multiply;
     color: white;
     text-align: center; 
-    height: 70dvh;
+    height: 90dvh;
     display: flex;
     align-items: center;
   }

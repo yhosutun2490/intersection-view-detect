@@ -1,10 +1,10 @@
 
 <template>
   <div class="container">
-    <Header class="header-wrapper" :class="[headerOutOfView? 'sticky' : '']"></Header>
+    <Header class="header-wrapper" :class="[headerWhite? 'header-scroll' : '']"></Header>
     <Observer 
-    @is-in-view="headerOutOfView=false"
-    @is-outside-view="headerOutOfView=true"
+    @is-in-view="headerWhite=false"
+    @is-outside-view="headerWhite=true"
     :observerOptions="homeIntroOptions"
     >
       <HomeIntro></HomeIntro>
@@ -18,25 +18,28 @@ import Header from './components/Header.vue';
 import HomeAbout from './components/HomeAbout.vue';
 import HomeIntro from './components/HomeIntro.vue';
 import HomeMoreStuff from './components/HomeMoreStuff.vue'
+import Observer from './components/Observer.vue'
 import {ref} from 'vue'
-const headerOutOfView = ref(false)
+const headerWhite = ref(false)
 const homeIntroOptions = {
-  threshold: 1,
-  rootMargin: '-200px 0px 0px 0px'
+  rootMargin: '-50px 0px 0px 0px'
 }
 
 </script>
 <style scoped>
 .container {
-  width: 100dvw;
+  max-width: 100dvw;
   height: 100dvh;
 
 }
 .header-wrapper {
   position: fixed;
+  width: 100%;
 }
-.header-wrapper.sticky {
+.header-wrapper.header-scroll {
   background-color: white;
+  color: black;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }
 
 .logo {

@@ -17,7 +17,6 @@ const linkOptions = ['home','about','anther page','pricing','blog']
 </script>
 <style scoped>
 .header {
-  height: 40px;
   width: calc(100% - 20px);
   display: grid;
   grid-template-columns: auto 5fr auto;
