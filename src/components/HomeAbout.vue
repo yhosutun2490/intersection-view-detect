@@ -4,7 +4,7 @@
     @is-in-view="isShowFadeIn=true"
     @is-out-view="isShowFadeIn=false"
     >
-        <div class="home-about">
+    <div class="home-about">
         <h2>About us</h2>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
         <div class="about-main-content">
@@ -64,7 +64,17 @@ const isShowFadeIn = ref(false)
 h2,h3 {
   font-weight: 700;
 }
-
+.home-about {
+  background-color: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  height: 50dvh;
+  padding-top: 100px;
+}
+.about-content {
+  display: flex;
+}
 
 </style>
 
