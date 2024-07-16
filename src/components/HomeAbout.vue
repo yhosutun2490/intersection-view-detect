@@ -2,7 +2,7 @@
     <Observer 
     :observerOptions="observerOptions"
     @is-in-view="isShowFadeIn=true"
-    @is-out-view="isShowFadeIn=false"
+    @is-outside-view="isShowFadeIn=false"
     >
     <div class="home-about">
         <h2>About us</h2>
@@ -47,6 +47,7 @@ import {ref} from 'vue'
 const observerOptions = {
     root: null,
     threshold: 0.85,
+    rootMargin: '-50px 0px 0px 0px'
 }
 const isShowFadeIn = ref(false)
 
@@ -59,7 +60,7 @@ const isShowFadeIn = ref(false)
 }
 .about-main-content {
   display: flex;
-  margin-top: 25pxgi;
+  margin-top: 25px;
 }
 h2,h3 {
   font-weight: 700;
@@ -69,7 +70,7 @@ h2,h3 {
   color: black;
   display: flex;
   flex-direction: column;
-  height: 50dvh;
+  height: 60dvh;
   padding-top: 100px;
 }
 .about-content {

@@ -1,11 +1,7 @@
 
 <template>
   <div class="container">
-<<<<<<< HEAD
-    <Header class="header-wrapper" :class="[headerOutOfView? 'nav-scroll' : '']"></Header>
-=======
-    <Header class="header-wrapper" :class="[headerWhite? 'header-scroll' : '']"></Header>
->>>>>>> 6c69ba6ecd9fc0f1ac6ee30999cfa586828eaf5c
+    <Header class="header-wrapper" :class="[headerWhite? 'nav-scroll' : '']"></Header>
     <Observer 
     @is-in-view="headerWhite=false"
     @is-outside-view="headerWhite=true"
@@ -26,14 +22,13 @@ import Observer from './components/Observer.vue';
 import {ref} from 'vue'
 const headerWhite = ref(false)
 const homeIntroOptions = {
-  threshold: 0,
   rootMargin: '-200px 0px 0px 0px'
 }
 
 </script>
 <style scoped>
 .container {
-  max-width: 100dvw;
+  width: 100dvw;
   height: 100dvh;
 
 }
@@ -41,17 +36,10 @@ const homeIntroOptions = {
   position: fixed;
   width: 100%;
 }
-<<<<<<< HEAD
 .header-wrapper.nav-scroll {
   color: #333;
   background: #f4f4f4;
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
-=======
-.header-wrapper.header-scroll {
-  background-color: white;
-  color: black;
-  box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
->>>>>>> 6c69ba6ecd9fc0f1ac6ee30999cfa586828eaf5c
 }
 
 .logo {
