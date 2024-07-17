@@ -5,7 +5,7 @@
 </template>
 <style scoped>
 .home-intro {
-    background: #123 url(//unsplash.it/900);
+    background: rgb(41, 64, 87) url(//unsplash.it/900);
     background-size: cover;
     background-blend-mode: multiply;
     color: white;

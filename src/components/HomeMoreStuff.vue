@@ -1,76 +1,33 @@
 <template>
   <div class="home-more-stuff">
-    <Observer  
-    @is-in-view="slideFadeIn=true"
-    @is-outside-view="slideFadeIn=false"
-    :observerOptions="slideObserveOptions"
-    >
-      <div class="more-stuff-grid">
-      <img src="https://unsplash.it/400" alt="" class="slide-in from-left" :class="[slideFadeIn?'appear': '']"/>
-      <p class="slide-in from-right" :class="[slideFadeIn?'appear': '']">
+   <div class="more-stuff-grid" v-for="number in 4" :key="number">
+      <img src="https://unsplash.it/400" alt="" class="slide-in" 
+      :class="[number % 2 ?'from-left':'from-right',slideFadeIn?'appear':'']"
+      />
+      <p class="slide-in" 
+      :class="[number % 2 ?'from-right':'from-left',,slideFadeIn?'appear':'']"
+      >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis fugit, quae beatae vero sit
         magni quaerat id ratione. Dolor optio unde amet omnis sapiente neque cumque consequuntur
         reiciendis deserunt. Dolorem vero exercitationem consequuntur, eligendi cupiditate debitis
         facilis quibusdam magni. Eveniet.
       </p>
     </div>
-    </Observer>
-  
-    <!-- <div class="more-stuff-grid">
-      <p class="slide-in from-left">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis fugit, quae beatae vero sit
-        magni quaerat id ratione. Dolor optio unde amet omnis sapiente neque cumque consequuntur
-        reiciendis deserunt. Dolorem vero exercitationem consequuntur, eligendi cupiditate debitis
-        facilis quibusdam magni. Eveniet.
-      </p>
-      <img src="https://unsplash.it/401" alt="" class="slide-in from-right" />
-    </div>
-    <div class="more-stuff-grid">
-      <img src="//unsplash.it/400" alt="" class="slide-in from-left" />
-      <p class="slide-in from-right">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis fugit, quae beatae vero sit
-        magni quaerat id ratione. Dolor optio unde amet omnis sapiente neque cumque consequuntur
-        reiciendis deserunt. Dolorem vero exercitationem consequuntur, eligendi cupiditate debitis
-        facilis quibusdam magni. Eveniet.
-      </p>
-    </div>
-    <div class="more-stuff-grid">
-      <p class="slide-in from-left">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis fugit, quae beatae vero sit
-        magni quaerat id ratione. Dolor optio unde amet omnis sapiente neque cumque consequuntur
-        reiciendis deserunt. Dolorem vero exercitationem consequuntur, eligendi cupiditate debitis
-        facilis quibusdam magni. Eveniet.
-      </p>
-      <img src="https://unsplash.it/401" alt="" class="slide-in from-right" />
-    </div>
-    <div class="more-stuff-grid">
-      <img src="//unsplash.it/400" alt="" class="slide-in from-left" />
-      <p class="slide-in from-right">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis fugit, quae beatae vero sit
-        magni quaerat id ratione. Dolor optio unde amet omnis sapiente neque cumque consequuntur
-        reiciendis deserunt. Dolorem vero exercitationem consequuntur, eligendi cupiditate debitis
-        facilis quibusdam magni. Eveniet.
-      </p>
-    </div>
-    <div class="more-stuff-grid">
-      <p class="slide-in from-left">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis fugit, quae beatae vero sit
-        magni quaerat id ratione. Dolor optio unde amet omnis sapiente neque cumque consequuntur
-        reiciendis deserunt. Dolorem vero exercitationem consequuntur, eligendi cupiditate debitis
-        facilis quibusdam magni. Eveniet.
-      </p>
-      <img src="https://unsplash.it/401" alt="" class="slide-in from-right" />
-    </div> -->
   </div>
 </template>
 <script setup>
-import Observer from "../components/Observer.vue"
-import {ref} from "vue"
+
+import {ref, onMounted} from "vue"
 const slideFadeIn = ref(false)
-const slideObserveOptions = {
-  threshold: 1,
-  rootMargin: '0px 0px -100px 0px'
-}
+// const slideObserveOptions = {
+//   root: null,
+//   rootMargin: '0px 0px 0px 0px'
+// }
+onMounted(()=>{
+  setTimeout(() => {
+    slideFadeIn.value = true
+  }, 5000);
+})
 </script>
 
 <style scoped>
@@ -92,18 +49,19 @@ const slideObserveOptions = {
 
 .from-left {
   grid-column: 2 / 3;
+  grid-row: 1;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 }
 
 .from-right {
   grid-column: 3 / 4;
+  grid-row: 1;
   -webkit-transform: translateX(50%);
   transform: translateX(50%);
 }
 .from-left,.from-right {
- transition: opacity 250ms ease transform 400ms ease;
- opacity: 0;
+ transition: opacity 250ms ease-in transform 400ms ease-in;
 }
 
 .from-left.appear,.from-right.appear {

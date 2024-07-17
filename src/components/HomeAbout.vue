@@ -2,7 +2,6 @@
     <Observer 
     :observerOptions="observerOptions"
     @is-in-view="isShowFadeIn=true"
-    @is-outside-view="isShowFadeIn=false"
     >
     <div class="home-about">
         <h2>About us</h2>
@@ -46,7 +45,7 @@ import Observer from './Observer.vue';
 import {ref} from 'vue'
 const observerOptions = {
     root: null,
-    threshold: 0.85,
+    threshold: 0.9,
     rootMargin: '-50px 0px 0px 0px'
 }
 const isShowFadeIn = ref(false)

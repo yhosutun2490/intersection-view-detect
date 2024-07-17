@@ -28,7 +28,8 @@ const homeIntroOptions = {
 </script>
 <style scoped>
 .container {
-  width: 100dvw;
+  width: 100%;
+  max-width: 100dvw;
   height: 100dvh;
 
 }
