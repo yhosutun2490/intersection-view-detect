@@ -54,7 +54,7 @@ const isShowFadeIn = ref(false)
 </script>
 <style scoped>
 .home-about {
-  padding: 5% 8%;
+  padding: 3% 6%;
   background: #f4f4f4; 
   color: #333;
 }
@@ -70,7 +70,6 @@ h2,h3 {
   color: black;
   display: flex;
   flex-direction: column;
-  height: 60dvh;
   padding-top: 100px;
 }
 .about-content {
