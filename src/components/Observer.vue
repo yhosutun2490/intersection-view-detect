@@ -22,7 +22,7 @@ onMounted(()=>{
       // 偵測是否進入view port
       if (entries[0].isIntersecting) {
         emits("is-in-view")
-        console.log("element in view")
+        console.log("element in view",entries[0])
       }
       else {
         emits('is-outside-view')

@@ -36,6 +36,7 @@ const homeIntroOptions = {
 .header-wrapper {
   position: fixed;
   width: 100%;
+  z-index: 1;
 }
 .header-wrapper.nav-scroll {
   color: #333;
